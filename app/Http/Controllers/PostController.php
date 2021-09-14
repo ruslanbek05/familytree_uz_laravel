@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -10,7 +11,12 @@ use Illuminate\Routing\Controller as BaseController;
 
 class PostController extends \Illuminate\Routing\Controller
 {
-    public function index(){
+    public function index()
+    {
+
+//        $category = Category::find(2);
+//        $post = Post::find(11);
+//        dd($post->category);
 
 //        $posts = Post::where('is_published',1)->get();
 
@@ -27,7 +33,8 @@ class PostController extends \Illuminate\Routing\Controller
         return view('post.index', compact('posts'));
     }
 
-    public function create(){
+    public function create()
+    {
 
 //        $postsArr = [
 //            [
@@ -65,7 +72,8 @@ class PostController extends \Illuminate\Routing\Controller
 
     }
 
-    public function store(){
+    public function store()
+    {
 
         $data = request()->validate([
             'title' => 'string',
@@ -80,13 +88,15 @@ class PostController extends \Illuminate\Routing\Controller
     }
 
 
-    public function show(Post $post){
+    public function show(Post $post)
+    {
 
-        return view('post.show',compact('post'));
+        return view('post.show', compact('post'));
 
     }
 
-    public function edit(Post $post){
+    public function edit(Post $post)
+    {
 
 //        dd($post->title);
 
@@ -97,7 +107,8 @@ class PostController extends \Illuminate\Routing\Controller
     }
 
 
-    public function update(Post $post){
+    public function update(Post $post)
+    {
 
 //        $post = Post::find(1);
 //
@@ -127,13 +138,15 @@ class PostController extends \Illuminate\Routing\Controller
 
     }
 
-    public function destroy(Post $post){
+    public function destroy(Post $post)
+    {
         $post->delete();
         return redirect()->route('post.index');
 
     }
 
-    public function delete(){
+    public function delete()
+    {
 
         $post = Post::find(1);
 
@@ -144,7 +157,8 @@ class PostController extends \Illuminate\Routing\Controller
         dd('deleted');
     }
 
-    public function restore(){
+    public function restore()
+    {
 
         $post = Post::withTrashed()->find(1);
 
@@ -153,11 +167,12 @@ class PostController extends \Illuminate\Routing\Controller
         dd('restored');
     }
 
-    public function firstOrCreate(){
+    public function firstOrCreate()
+    {
 
         $post = Post::find(1);
 
-        $anotherPost =[
+        $anotherPost = [
             'title' => 'some title of post from phpstorm',
             'content' => 'some some interesting content',
             'image' => 'some imagelabla.jpg',
@@ -175,16 +190,17 @@ class PostController extends \Illuminate\Routing\Controller
                 'image' => 'some imagelabla.jpg',
                 'likes' => 50000,
                 'is_published' => 1
-        ]);
+            ]);
 
         dd($post->content);
         dd('finished');
 
     }
 
-    public function updateOrCreate(){
+    public function updateOrCreate()
+    {
 
-        $anotherPost =[
+        $anotherPost = [
             'title' => 'updateOrCreate title of post from phpstorm',
             'content' => 'updateOrCreate some interesting content',
             'image' => 'updateOrCreate imagelabla.jpg',
@@ -197,12 +213,12 @@ class PostController extends \Illuminate\Routing\Controller
                 'title' => 'some title not phpstorm',
             ],
             [
-            'title' => 'some title not phpstorm',
-            'content' => 'it is not updateOrCreate some interesting content',
-            'image' => 'updateOrCreate imagelabla.jpg',
-            'likes' => 500,
-            'is_published' => 0
-        ]);
+                'title' => 'some title not phpstorm',
+                'content' => 'it is not updateOrCreate some interesting content',
+                'image' => 'updateOrCreate imagelabla.jpg',
+                'likes' => 500,
+                'is_published' => 0
+            ]);
 
         dump($post->content);
         dd('update or create finished');
