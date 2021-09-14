@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,7 +15,13 @@ class PostController extends \Illuminate\Routing\Controller
     public function index()
     {
 
+//        $tag = Tag::find(2);
+//
+//        dd($tag->posts);
+
+
 //        $category = Category::find(2);
+//        dd($category);
 //        $post = Post::find(11);
 //        dd($post->category);
 
