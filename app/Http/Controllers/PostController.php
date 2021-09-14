@@ -87,7 +87,7 @@ class PostController extends \Illuminate\Routing\Controller
     {
 
         $data = request()->validate([
-            'title' => 'string',
+            'title' => 'required|string',
             'content' => 'string',
             'image' => 'string',
             'likes' => 'integer',
