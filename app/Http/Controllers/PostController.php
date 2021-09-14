@@ -12,13 +12,19 @@ class PostController extends \Illuminate\Routing\Controller
 {
     public function index(){
 
-        $posts = Post::where('is_published',1)->get();
+//        $posts = Post::where('is_published',1)->get();
 
-        foreach ($posts as $post){
-            dump($post->title);
-        }
+//        foreach ($posts as $post){
+//            dump($post->title);
+//        }
 
-        dd('end');
+        $posts = Post::all();
+
+//        dump($posts);
+
+//        dd('end');
+
+        return view('posts', compact('posts'));
     }
 
     public function create(){
