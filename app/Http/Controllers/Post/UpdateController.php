@@ -3,21 +3,15 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Post;
 
 class UpdateController extends Controller
 {
-    public function __invoke(Post $post)
+    public function __invoke(UpdateRequest $request, Post $post)
     {
         // TODO: Implement __invoke() method.
-        $data = request()->validate([
-            'title' => 'string',
-            'content' => 'string',
-            'image' => 'string',
-            'likes' => 'integer',
-            'category_id' => '',
-            'tags' => '',
-        ]);
+        $data = $request->validated();
 
         $tags = $data['tags'];
         unset($data['tags']);
