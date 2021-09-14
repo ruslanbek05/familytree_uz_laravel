@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostTag;
 use App\Models\Tag;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -75,7 +76,10 @@ class PostController extends \Illuminate\Routing\Controller
 //
 //        dd('created');
 
-        return view('post.create');
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('post.create',compact('categories', 'tags'));
 
     }
 
@@ -87,9 +91,27 @@ class PostController extends \Illuminate\Routing\Controller
             'content' => 'string',
             'image' => 'string',
             'likes' => 'integer',
+            'category_id' => '',
+            'tags' => '',
         ]);
 
-        Post::create($data);
+        $tags = $data['tags'];
+        unset($data['tags']);
+
+//        dd($tags, $data);
+
+        $post = Post::create($data);
+
+//        foreach ($tags as $tag)
+//        {
+//            PostTag::firstOrcreate([
+//                'tag_id'=>$tag,
+//                'post_id'=>$post->id,
+//
+//            ]);
+//        }
+
+        $post->tags()->attach($tags);
 
         return redirect()->route('post.index');
     }
@@ -106,8 +128,10 @@ class PostController extends \Illuminate\Routing\Controller
     {
 
 //        dd($post->title);
+        $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('post.edit', compact('post'));
+        return view('post.edit', compact('post','categories','tags'));
 
 //        return view('post.show',compact('post'));
 
@@ -137,10 +161,17 @@ class PostController extends \Illuminate\Routing\Controller
             'content' => 'string',
             'image' => 'string',
             'likes' => 'integer',
+            'category_id' => '',
+            'tags' => '',
         ]);
 
+        $tags = $data['tags'];
+        unset($data['tags']);
 
         $post->update($data);
+
+        $post->tags()->sync($tags);
+
         return redirect()->route('post.show', $post->id);
 
     }
