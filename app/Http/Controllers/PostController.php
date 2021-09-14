@@ -16,6 +16,9 @@ class PostController extends \Illuminate\Routing\Controller
     public function index()
     {
 
+//        $category = Category::find(1);
+//        dd($category->posts);
+
 //        $tag = Tag::find(2);
 //
 //        dd($tag->posts);
