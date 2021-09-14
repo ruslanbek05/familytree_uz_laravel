@@ -135,6 +135,7 @@
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1xzoBnwttl6fAZNCJhl8JCDxTks" />
@@ -174,7 +175,7 @@
       <workItem from="1631435050337" duration="17000" />
       <workItem from="1631440989689" duration="6239000" />
       <workItem from="1631549760906" duration="4549000" />
-      <workItem from="1631611973573" duration="2582000" />
+      <workItem from="1631611973573" duration="2881000" />
     </task>
     <servers />
   </component>
