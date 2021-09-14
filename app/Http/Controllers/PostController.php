@@ -24,62 +24,112 @@ class PostController extends \Illuminate\Routing\Controller
 
 //        dd('end');
 
-        return view('posts', compact('posts'));
+        return view('post.index', compact('posts'));
     }
 
     public function create(){
 
-        $postsArr = [
-            [
-                'title' => 'title of post from phpstorm',
-                'content' => 'some interesting content',
-                'image' => 'imagelabla.jpg',
-                'likes' => 20,
-                'is_published' => 1
-            ],
-            [
-                'title' => 'another title of post from phpstorm',
-                'content' => 'another some interesting content',
-                'image' => 'another imagelabla.jpg',
-                'likes' => 50,
-                'is_published' => 1
-            ]
-        ];
+//        $postsArr = [
+//            [
+//                'title' => 'title of post from phpstorm',
+//                'content' => 'some interesting content',
+//                'image' => 'imagelabla.jpg',
+//                'likes' => 20,
+//                'is_published' => 1
+//            ],
+//            [
+//                'title' => 'another title of post from phpstorm',
+//                'content' => 'another some interesting content',
+//                'image' => 'another imagelabla.jpg',
+//                'likes' => 50,
+//                'is_published' => 1
+//            ]
+//        ];
+//
+////        Post::create([
+////            'title' => 'title of post from phpstorm',
+////            'content' => 'some interesting content',
+////            'image' => 'imagelabla.jpg',
+////            'likes' => 20,
+////            'is_published' => 1
+////        ]);
+//
+//        foreach ($postsArr as $item){
+////            dd($item);
+//            Post::create($item);
+//        }
+//
+//        dd('created');
 
-//        Post::create([
-//            'title' => 'title of post from phpstorm',
-//            'content' => 'some interesting content',
-//            'image' => 'imagelabla.jpg',
-//            'likes' => 20,
-//            'is_published' => 1
-//        ]);
-
-        foreach ($postsArr as $item){
-//            dd($item);
-            Post::create($item);
-        }
-
-        dd('created');
+        return view('post.create');
 
     }
 
-    public function update(){
+    public function store(){
 
-        $post = Post::find(1);
-
-//        $post->update([
-//            'title' => '111updated ',
-//            'content' => 'updated another some interesting content',
-//            'image' => 'updated another imagelabla.jpg',
-//            'likes' => 50,
-//            'is_published' => 1
-//        ]);
-
-        $post->update([
-            'title' => '111updated '
+        $data = request()->validate([
+            'title' => 'string',
+            'content' => 'string',
+            'image' => 'string',
+            'likes' => 'integer',
         ]);
 
-        dd('updated');
+        Post::create($data);
+
+        return redirect()->route('post.index');
+    }
+
+
+    public function show(Post $post){
+
+        return view('post.show',compact('post'));
+
+    }
+
+    public function edit(Post $post){
+
+//        dd($post->title);
+
+        return view('post.edit', compact('post'));
+
+//        return view('post.show',compact('post'));
+
+    }
+
+
+    public function update(Post $post){
+
+//        $post = Post::find(1);
+//
+////        $post->update([
+////            'title' => '111updated ',
+////            'content' => 'updated another some interesting content',
+////            'image' => 'updated another imagelabla.jpg',
+////            'likes' => 50,
+////            'is_published' => 1
+////        ]);
+//
+//        $post->update([
+//            'title' => '111updated '
+//        ]);
+//
+
+        $data = request()->validate([
+            'title' => 'string',
+            'content' => 'string',
+            'image' => 'string',
+            'likes' => 'integer',
+        ]);
+
+
+        $post->update($data);
+        return redirect()->route('post.show', $post->id);
+
+    }
+
+    public function destroy(Post $post){
+        $post->delete();
+        return redirect()->route('post.index');
 
     }
 

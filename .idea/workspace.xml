@@ -147,14 +147,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/post" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\familytree_uz_laravel\resources\views\post" />
       <recent name="C:\wamp64\www\familytree_uz_laravel\app\Http\Controllers" />
       <recent name="C:\wamp64\www\familytree_uz_laravel\resources\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\familytree_uz_laravel\resources\views\post" />
     </key>
   </component>
   <component name="RunManager">
@@ -175,7 +179,7 @@
       <workItem from="1631435050337" duration="17000" />
       <workItem from="1631440989689" duration="6239000" />
       <workItem from="1631549760906" duration="4549000" />
-      <workItem from="1631611973573" duration="4638000" />
+      <workItem from="1631611973573" duration="11311000" />
     </task>
     <servers />
   </component>
