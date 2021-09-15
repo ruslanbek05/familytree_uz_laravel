@@ -147,13 +147,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Post" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests/Post" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\familytree_uz_laravel\app\Http\Requests\Post" />
       <recent name="C:\wamp64\www\familytree_uz_laravel\app\Http\Controllers\Post" />
       <recent name="C:\wamp64\www\familytree_uz_laravel\resources\views\post" />
       <recent name="C:\wamp64\www\familytree_uz_laravel\app\Http\Controllers" />
