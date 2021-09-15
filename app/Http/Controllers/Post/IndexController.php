@@ -10,7 +10,7 @@ class IndexController extends BaseController
     public function __invoke()
     {
         // TODO: Implement __invoke() method.
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view('post.index', compact('posts'));
     }
 }
