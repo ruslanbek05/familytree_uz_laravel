@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Route::group(['namespace'=>'Post'],function (){
     Route::get('/posts', 'IndexController')->name('post.index');
@@ -53,3 +51,7 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin'],function () {
 
 Route::get('/contacts', 'ContactController@index')->name('contact.index');
 Route::get('/about', 'AboutController@index')->name('about.index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
