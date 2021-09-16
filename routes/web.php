@@ -43,5 +43,13 @@ Route::get('/posts/first_or_create', 'PostController@firstOrCreate');
 Route::get('/posts/update_or_create', 'PostController@updateOrCreate');
 
 Route::get('/main', 'MainController@index')->name('main.index');
+
+Route::group(['namespace'=>'Admin', 'prefix'=>'admin'],function () {
+//    Route::get('/admin', 'IndexController')->name('main.index');
+    Route::group(['namespace'=>'Post'],function () {
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+    });
+});
+
 Route::get('/contacts', 'ContactController@index')->name('contact.index');
 Route::get('/about', 'AboutController@index')->name('about.index');
