@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['namespace'=>'Post'],function (){
     Route::get('/posts', 'IndexController')->name('post.index');
@@ -42,7 +42,7 @@ Route::get('/posts/update_or_create', 'PostController@updateOrCreate');
 
 Route::get('/main', 'MainController@index')->name('main.index');
 
-Route::group(['namespace'=>'Admin', 'prefix'=>'admin'],function () {
+Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'admin'],function () {
 //    Route::get('/admin', 'IndexController')->name('main.index');
     Route::group(['namespace'=>'Post'],function () {
         Route::get('/post', 'IndexController')->name('admin.post.index');
