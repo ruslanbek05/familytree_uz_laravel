@@ -31,6 +31,8 @@ class FilterRequest extends FormRequest
 //            'likes' => 'integer',
             'category_id' => '',
 //            'tags' => '',
+            'page' => '',
+            'per_page' => '',
         ];
     }
 }
